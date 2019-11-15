@@ -5,6 +5,7 @@ const ingredients = document.querySelector('.ingredients');
 const subTotal = document.querySelector('.subTotal');
 const postage = document.querySelector('.postage');
 const total = document.querySelector('.total');
+const pay = document.querySelector('.pay');
 
 const setas = [{
 	"recipe": {
@@ -93,6 +94,8 @@ function loadJSON() {
 		total.innerHTML += `Total: ` + arrTot.reduce(reducer) + currency;
 		
 		console.log(tot.reduce(reducer));
+
+		pay.innerHTML += tot.reduce(reducer) + currency;
 
 	}
 
