@@ -2,6 +2,9 @@
 const name = document.querySelector('.name');
 const btn = document.querySelector('.btn');
 const ingredients = document.querySelector('.ingredients');
+const subTotal = document.querySelector('.subTotal');
+const postage = document.querySelector('.postage');
+const total = document.querySelector('.total');
 
 const setas = [{
 	"recipe": {
@@ -61,19 +64,38 @@ const setas = [{
 
 function loadJSON() {
 	console.log(setas);
+	const tot = [];
 	for (let item of setas) {
 		name.innerHTML = item.recipe.name;
+		const currency = item.recipe.currency;
 		for (let article of item.recipe.ingredients) {
 			ingredients.innerHTML += `
 			Artículo: ${article.product} <br>
 			Marca: ${article.brand} <br>
 			Cantidad: ${article.quantity} <br>
-			Precio: ${article.price} <br>
+			Precio: ${article.price} ${currency}<br>
 			<br><br>
-			`
+			`;
+			tot.push(article.price);
+
 		}
+		const reducer = (acc, currentValue) => acc + currentValue;
+
+		subTotal.innerHTML += `Subtotal: ` + tot.reduce(reducer);
+		
+		postage.innerHTML += `Gastos de envío: 7` + currency;
+
+
+		const arrTot = [];
+		arrTot.push(tot.reduce(reducer));
+		arrTot.push(7); 
+
+		total.innerHTML += `Total: ` + arrTot.reduce(reducer) + currency;
+		
+		console.log(tot.reduce(reducer));
 
 	}
+
 }
 
 btn.addEventListener('click', loadJSON);
