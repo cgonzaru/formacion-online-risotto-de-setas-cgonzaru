@@ -1,0 +1,44 @@
+.app__main{
+    border: solid 2px grey;
+}
+
+.title{
+    text-transform: uppercase;
+}
+
+.sel{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cant{
+    width: 50px;
+    height: 50px;
+    border: solid 2px grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: blue;
+}
+
+.content{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    border-top: solid 2px grey;
+    padding: 10px;
+}
+
+.check{
+    display: flex;
+    align-items: center;
+}
+
+.cost{
+    align-items: center;
+    color: green;
+}
+
+.subTotal{
+    border-top: solid 2px grey;
+}
